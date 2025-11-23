@@ -328,8 +328,8 @@
         <td>4L Moviprep</td></tr>
     <tr class="red"><td>🔴 Moviprep Red Regimen</td>
         <td>1 Major + any additional factor<span class="criteria-line">OR ≥3 Minor Risk Factors</span></td>
-        <td>4L Moviprep + Bisacodyl 10mg for 2 days prior</td></tr>
-    <tr class="black"><td>⚫ Moviprep Black Regimen</td><td>Previously failed 4L Moviprep</td><td>2L Moviprep two days prior + 4L Moviprep preparation + Bisacodyl 10mg for 2 days</td></tr>
+        <td>4L Moviprep + Bisacodyl 10mg for 2 days</td></tr>
+    <tr class="black"><td>⚫ Moviprep Black Regimen</td><td>Previously failed 4L Moviprep</td><td>6L Moviprep + Bisacodyl 10mg for 2 days</td></tr>
   </table>
 
   <h4 class="section-title">Picoprep Risk Categories</h4>
@@ -344,7 +344,7 @@
     <tr class="red"><td>🔴 Picoprep Red Regimen</td>
         <td>1 Major + any additional factor<span class="criteria-line">OR ≥3 Minor Risk Factors</span></td>
         <td>4 sachet Picoprep preparation + Bisacodyl 10mg for 2 days</td></tr>
-    <tr class="black"><td>⚫ Picoprep Black Regimen</td><td>Previously failed 4 sachet Picoprep</td><td>2 sachet Picoprep 2 days prior + 4 sachet Picoprep + Bisacodyl 10mg for 2 days</td></tr>
+    <tr class="black"><td>⚫ Picoprep Black Regimen</td><td>Previously failed 4 sachet Picoprep</td><td>6 sachet Picoprep + Bisacodyl 10mg for 2 days</td></tr>
   </table>
 
  <script>
@@ -373,12 +373,12 @@
 
       // MOVIPREP PATHWAY
       if (failed4L) {
-        text = "⚫ Moviprep Black Regimen: 2L Moviprep two days prior + 4L Moviprep preparation + Bisacodyl 10mg for 2 days";
+        text = "⚫ Moviprep Black Regimen: 6L Moviprep + Bisacodyl 10mg for 2 days";
         style = "black";
         summary = `Moviprep Black Regimen | ${riskFactors.join(", ") || "No RF"} | ${notes.join(", ")}`;
       } else if (!intolerantMoviprep) {
         if ((major >= 1 && (major + minor) > 1) || minor >= 3) {
-          text = "🔴 Moviprep Red Regimen: 4L Moviprep + Bisacodyl 10mg for 2 days prior";
+          text = "🔴 Moviprep Red Regimen: 4L Moviprep + Bisacodyl 10mg for 2 days";
           style = "red";
           summary = `Moviprep Red Regimen | ${riskFactors.join(", ")} | ${notes.join(", ")}`;
         } else if (major >= 1 || minor >= 2) {
@@ -399,7 +399,7 @@
       // PICOPREP PATHWAY (overrides Moviprep when intolerant or prior picoprep failure)
       if (intolerantMoviprep || failed4Pico) {
         if (failed4Pico) {
-          text = "⚫ Picoprep Black Regimen: 2 sachet Picoprep 2 days prior + 4 sachet Picoprep + Bisacodyl 10mg for 2 days";
+          text = "⚫ Picoprep Black Regimen: 6 sachet Picoprep + Bisacodyl 10mg for 2 days";
           style = "black";
           summary = `Picoprep Black Regimen | ${riskFactors.join(", ")} | ${notes.join(", ")}`;
         } else if ((major >= 1 && (major + minor) > 1) || minor >= 3) {
